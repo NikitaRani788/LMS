@@ -1,0 +1,205 @@
+/**
+ * SESSION AND ACCESS CONTROL PATTERNS
+ * ====================================
+ * 
+ * This file documents the recommended patterns for session handling
+ * and access control across the if0_41817906_lms system.
+ */
+
+// ============================================
+// 1. SESSION INITIALIZATION PATTERN
+// ============================================
+// Always at the TOP of every page that needs sessions
+
+<?php
+session_start();
+require_once __DIR__ . '/../config/db.php';
+require_once __DIR__ . '/../includes/functions.php';
+?>
+
+
+// ============================================
+// 2. ROLE-BASED ACCESS CONTROL PATTERN
+// ============================================
+// Check role immediately after session_start()
+
+<?php
+// Pattern 1: Check if user is logged in (has role)
+if (!isset($_SESSION['role'])) {
+    header('Location: /login.php');
+    exit;
+}
+
+// Pattern 2: Check for specific role
+if ($_SESSION['role'] !== 'admin') {
+    header('Location: /index.php');
+    exit;
+}
+
+// Pattern 3: Check for multiple allowed roles
+$allowed_roles = ['admin', 'faculty'];
+if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
+    header('Location: /index.php');
+    exit;
+}
+?>
+
+
+// ============================================
+// 3. SETTING SESSION VARIABLES (at login)
+// ============================================
+// Use consistent variable names throughout the system
+
+<?php
+// After successful authentication in login.php
+$_SESSION['role'] = $user['role'];           // admin|faculty|student
+$_SESSION['user_id'] = $user['userid'];      // from database
+$_SESSION['user_name'] = $user['first_name'] . ' ' . $user['last_name'];
+$_SESSION['email'] = $user['email'];
+
+// Optional: Add timestamp for session timeout logic
+$_SESSION['login_time'] = time();
+?>
+
+
+// ============================================
+// 4. ACCESSING SESSION DATA IN DASHBOARDS
+// ============================================
+
+<?php
+// Get current user information
+$current_user_id = $_SESSION['user_id'];
+$current_role = $_SESSION['role'];
+$current_user_name = $_SESSION['user_name'];
+
+// Use in page title or header
+echo "Welcome, " . htmlspecialchars($_SESSION['user_name']);
+
+// Use in database queries
+$stmt = $pdo->prepare('SELECT * FROM users WHERE userid = ?');
+$stmt->execute([$_SESSION['user_id']]);
+$user = $stmt->fetch();
+?>
+
+
+// ============================================
+// 5. DATABASE CONNECTION IN DASHBOARDS
+// ============================================
+// Proper path resolution using __DIR__
+
+<?php
+// CORRECT - Works from any nested directory
+require_once __DIR__ . '/../config/db.php';
+
+// The $pdo variable is now available globally
+// Safe for all queries and functions that use $pdo parameter
+?>
+
+
+// ============================================
+// 6. PROPER NAVIGATION LINKS
+// ============================================
+// Always use absolute paths with / prefix
+
+<!-- CORRECT - Works from any page -->
+<a href="/admin/dashboard.php">Dashboard</a>
+<a href="/admin/users.php">Manage Users</a>
+<a href="/index.php">Switch Role</a>
+
+<!-- AVOID - Relative paths cause issues -->
+<!-- <a href="dashboard.php">Dashboard</a> -->
+<!-- <a href="../admin/dashboard.php">Dashboard</a> -->
+
+
+// ============================================
+// 7. CSS INCLUSION PATTERN
+// ============================================
+// Always use absolute paths; CSS should be in <style> or external file
+
+<?php
+// In <head> section of HTML:
+?>
+
+<!-- CORRECT - External CSS file -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- CORRECT - Inline styles in <style> tag -->
+<style>
+    .dashboard-container {
+        padding: 20px;
+    }
+</style>
+
+<!-- AVOID - Plain CSS outside tags -->
+<!-- This appears as plain text and breaks layout -->
+
+
+// ============================================
+// 8. COMPLETE DASHBOARD TEMPLATE
+// ============================================
+
+<?php
+// /admin/dashboard.php
+session_start();
+require_once __DIR__ . '/../config/db.php';
+require_once __DIR__ . '/../includes/functions.php';
+
+// Set page variables BEFORE header include
+$current_role = 'admin';
+$current_user_id = $_SESSION['user_id'] ?? 1;
+$pageTitle = 'Admin Dashboard';
+
+// Verify access
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    header('Location: ' . ($_SESSION['role'] ?? null ? '/index.php' : '/login.php'));
+    exit;
+}
+
+// Get data
+try {
+    $total = $pdo->query('SELECT COUNT(*) FROM users')->fetchColumn();
+} catch (Exception $e) {
+    $total = 0;
+}
+
+// Include header (has HTML, CSS, navigation)
+require_once __DIR__ . '/../includes/header.php';
+?>
+
+<!-- Content here -->
+<div class="main-container">
+    <h1>Admin Dashboard</h1>
+    <p>Total Users: <?php echo $total; ?></p>
+</div>
+
+<?php
+// Include footer (closes HTML, scripts)
+require_once __DIR__ . '/../includes/footer.php';
+?>
+
+
+// ============================================
+// 9. LOGOUT PATTERN
+// ============================================
+
+<?php
+// /logout.php
+session_start();
+session_destroy();
+header('Location: /login.php');
+exit;
+?>
+
+
+// ============================================
+// 10. SESSION SECURITY TIPS
+// ============================================
+// 1. Always use session_start() at TOP of file
+// 2. Always verify $_SESSION['role'] before proceeding
+// 3. Use htmlspecialchars() when displaying session data
+// 4. Use prepared statements for database queries
+// 5. Set session timeout in login.php (optional)
+// 6. Use HTTPS in production for session security
+// 7. Store only essential data in $_SESSION (not passwords!)
+// 8. Regenerate session ID after login: session_regenerate_id()

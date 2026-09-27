@@ -1,0 +1,417 @@
+<ew-language date="2026/4/27" id="en-US" author="e.World Technology Limited">
+  <project>
+    <phrase id="footertext" value="&amp;copy;2025 e.World Technology Limited. All rights reserved." />
+    <menu id="1">
+      <phrase id="menutext" value="announcements" />
+    </menu>
+    <menu id="2">
+      <phrase id="menutext" value="assignments" />
+    </menu>
+    <menu id="3">
+      <phrase id="menutext" value="courses" />
+    </menu>
+    <menu id="4">
+      <phrase id="menutext" value="departments" />
+    </menu>
+    <menu id="5">
+      <phrase id="menutext" value="enrollments" />
+    </menu>
+    <menu id="6">
+      <phrase id="menutext" value="mcq answers" />
+    </menu>
+    <menu id="7">
+      <phrase id="menutext" value="mcq questions" />
+    </menu>
+    <menu id="8">
+      <phrase id="menutext" value="notes" />
+    </menu>
+    <menu id="9">
+      <phrase id="menutext" value="semester courses" />
+    </menu>
+    <menu id="10">
+      <phrase id="menutext" value="submissions" />
+    </menu>
+    <menu id="11">
+      <phrase id="menutext" value="systemsettings" />
+    </menu>
+    <menu id="12">
+      <phrase id="menutext" value="users" />
+    </menu>
+    <table id="announcements">
+      <phrase id="tblcaption" value="announcements" />
+      <field id="announcement_id">
+        <phrase id="fldcaption" value="announcement id" />
+      </field>
+      <field id="course_id">
+        <phrase id="fldcaption" value="course id" />
+      </field>
+      <field id="posted_by">
+        <phrase id="fldcaption" value="posted by" />
+      </field>
+      <field id="title">
+        <phrase id="fldcaption" value="title" />
+      </field>
+      <field id="_message">
+        <phrase id="fldcaption" value="message" />
+      </field>
+      <field id="priority">
+        <phrase id="fldcaption" value="priority" />
+        <phrase id="fldtagvalue1" value="normal" />
+        <phrase id="fldtagcaption1" value="normal" />
+        <phrase id="fldtagvalue2" value="important" />
+        <phrase id="fldtagcaption2" value="important" />
+        <phrase id="fldtagvalue3" value="urgent" />
+        <phrase id="fldtagcaption3" value="urgent" />
+      </field>
+      <field id="status">
+        <phrase id="fldcaption" value="status" />
+        <phrase id="fldtagvalue1" value="active" />
+        <phrase id="fldtagcaption1" value="active" />
+        <phrase id="fldtagvalue2" value="expired" />
+        <phrase id="fldtagcaption2" value="expired" />
+        <phrase id="fldtagvalue3" value="archived" />
+        <phrase id="fldtagcaption3" value="archived" />
+      </field>
+      <field id="created_at">
+        <phrase id="fldcaption" value="created at" />
+      </field>
+    </table>
+    <table id="assignments">
+      <phrase id="tblcaption" value="assignments" />
+      <field id="assignment_id">
+        <phrase id="fldcaption" value="assignment id" />
+      </field>
+      <field id="course_id">
+        <phrase id="fldcaption" value="course id" />
+      </field>
+      <field id="assigned_by">
+        <phrase id="fldcaption" value="assigned by" />
+      </field>
+      <field id="title">
+        <phrase id="fldcaption" value="title" />
+      </field>
+      <field id="description">
+        <phrase id="fldcaption" value="description" />
+      </field>
+      <field id="assignment_type">
+        <phrase id="fldcaption" value="assignment type" />
+        <phrase id="fldtagvalue1" value="practical" />
+        <phrase id="fldtagcaption1" value="practical" />
+        <phrase id="fldtagvalue2" value="mcq" />
+        <phrase id="fldtagcaption2" value="mcq" />
+      </field>
+      <field id="due_date">
+        <phrase id="fldcaption" value="due date" />
+      </field>
+      <field id="max_marks">
+        <phrase id="fldcaption" value="max marks" />
+      </field>
+      <field id="attachment_path">
+        <phrase id="fldcaption" value="attachment path" />
+      </field>
+      <field id="status">
+        <phrase id="fldcaption" value="status" />
+        <phrase id="fldtagvalue1" value="active" />
+        <phrase id="fldtagcaption1" value="active" />
+        <phrase id="fldtagvalue2" value="closed" />
+        <phrase id="fldtagcaption2" value="closed" />
+        <phrase id="fldtagvalue3" value="archived" />
+        <phrase id="fldtagcaption3" value="archived" />
+      </field>
+      <field id="created_at">
+        <phrase id="fldcaption" value="created at" />
+      </field>
+    </table>
+    <table id="courses">
+      <phrase id="tblcaption" value="courses" />
+      <field id="course_id">
+        <phrase id="fldcaption" value="course id" />
+      </field>
+      <field id="title">
+        <phrase id="fldcaption" value="title" />
+      </field>
+      <field id="description">
+        <phrase id="fldcaption" value="description" />
+      </field>
+      <field id="category_id">
+        <phrase id="fldcaption" value="category id" />
+      </field>
+      <field id="instructor_id">
+        <phrase id="fldcaption" value="instructor id" />
+      </field>
+      <field id="department_id">
+        <phrase id="fldcaption" value="department id" />
+      </field>
+      <field id="created_at">
+        <phrase id="fldcaption" value="created at" />
+      </field>
+      <field id="updated_at">
+        <phrase id="fldcaption" value="updated at" />
+      </field>
+    </table>
+    <table id="departments">
+      <phrase id="tblcaption" value="departments" />
+      <field id="id">
+        <phrase id="fldcaption" value="id" />
+      </field>
+      <field id="dept_name">
+        <phrase id="fldcaption" value="dept name" />
+      </field>
+    </table>
+    <table id="enrollments">
+      <phrase id="tblcaption" value="enrollments" />
+      <field id="enrollment_id">
+        <phrase id="fldcaption" value="enrollment id" />
+      </field>
+      <field id="user_id">
+        <phrase id="fldcaption" value="user id" />
+      </field>
+      <field id="course_id">
+        <phrase id="fldcaption" value="course id" />
+      </field>
+      <field id="enrollment_date">
+        <phrase id="fldcaption" value="enrollment date" />
+      </field>
+      <field id="enrollment_status">
+        <phrase id="fldcaption" value="enrollment status" />
+        <phrase id="fldtagvalue1" value="active" />
+        <phrase id="fldtagcaption1" value="active" />
+        <phrase id="fldtagvalue2" value="completed" />
+        <phrase id="fldtagcaption2" value="completed" />
+        <phrase id="fldtagvalue3" value="dropped" />
+        <phrase id="fldtagcaption3" value="dropped" />
+      </field>
+      <field id="remarks">
+        <phrase id="fldcaption" value="remarks" />
+      </field>
+    </table>
+    <table id="mcq_answers">
+      <phrase id="tblcaption" value="mcq answers" />
+      <field id="answer_id">
+        <phrase id="fldcaption" value="answer id" />
+      </field>
+      <field id="question_id">
+        <phrase id="fldcaption" value="question id" />
+      </field>
+      <field id="user_id">
+        <phrase id="fldcaption" value="user id" />
+      </field>
+      <field id="selected_option">
+        <phrase id="fldcaption" value="selected option" />
+      </field>
+      <field id="submitted_at">
+        <phrase id="fldcaption" value="submitted at" />
+      </field>
+    </table>
+    <table id="mcq_questions">
+      <phrase id="tblcaption" value="mcq questions" />
+      <field id="question_id">
+        <phrase id="fldcaption" value="question id" />
+      </field>
+      <field id="assignment_id">
+        <phrase id="fldcaption" value="assignment id" />
+      </field>
+      <field id="question_text">
+        <phrase id="fldcaption" value="question text" />
+      </field>
+      <field id="option_a">
+        <phrase id="fldcaption" value="option a" />
+      </field>
+      <field id="option_b">
+        <phrase id="fldcaption" value="option b" />
+      </field>
+      <field id="option_c">
+        <phrase id="fldcaption" value="option c" />
+      </field>
+      <field id="option_d">
+        <phrase id="fldcaption" value="option d" />
+      </field>
+      <field id="correct_option">
+        <phrase id="fldcaption" value="correct option" />
+      </field>
+      <field id="marks">
+        <phrase id="fldcaption" value="marks" />
+      </field>
+      <field id="created_at">
+        <phrase id="fldcaption" value="created at" />
+      </field>
+    </table>
+    <table id="notes">
+      <phrase id="tblcaption" value="notes" />
+      <field id="note_id">
+        <phrase id="fldcaption" value="note id" />
+      </field>
+      <field id="course_id">
+        <phrase id="fldcaption" value="course id" />
+      </field>
+      <field id="uploaded_by">
+        <phrase id="fldcaption" value="uploaded by" />
+      </field>
+      <field id="title">
+        <phrase id="fldcaption" value="title" />
+      </field>
+      <field id="description">
+        <phrase id="fldcaption" value="description" />
+      </field>
+      <field id="file_path">
+        <phrase id="fldcaption" value="file path" />
+      </field>
+      <field id="note_type">
+        <phrase id="fldcaption" value="note type" />
+        <phrase id="fldtagvalue1" value="pdf" />
+        <phrase id="fldtagcaption1" value="pdf" />
+        <phrase id="fldtagvalue2" value="ppt" />
+        <phrase id="fldtagcaption2" value="ppt" />
+        <phrase id="fldtagvalue3" value="doc" />
+        <phrase id="fldtagcaption3" value="doc" />
+        <phrase id="fldtagvalue4" value="link" />
+        <phrase id="fldtagcaption4" value="link" />
+        <phrase id="fldtagvalue5" value="syllabus" />
+        <phrase id="fldtagcaption5" value="syllabus" />
+        <phrase id="fldtagvalue6" value="lesson_plan" />
+        <phrase id="fldtagcaption6" value="lesson_plan" />
+        <phrase id="fldtagvalue7" value="content" />
+        <phrase id="fldtagcaption7" value="content" />
+      </field>
+      <field id="visibility_status">
+        <phrase id="fldcaption" value="visibility status" />
+        <phrase id="fldtagvalue1" value="visible" />
+        <phrase id="fldtagcaption1" value="visible" />
+        <phrase id="fldtagvalue2" value="hidden" />
+        <phrase id="fldtagcaption2" value="hidden" />
+      </field>
+      <field id="created_at">
+        <phrase id="fldcaption" value="created at" />
+      </field>
+    </table>
+    <table id="semester_courses">
+      <phrase id="tblcaption" value="semester courses" />
+      <field id="id">
+        <phrase id="fldcaption" value="id" />
+      </field>
+      <field id="course_id">
+        <phrase id="fldcaption" value="course id" />
+      </field>
+      <field id="semester">
+        <phrase id="fldcaption" value="semester" />
+      </field>
+      <field id="created_at">
+        <phrase id="fldcaption" value="created at" />
+      </field>
+    </table>
+    <table id="submissions">
+      <phrase id="tblcaption" value="submissions" />
+      <field id="submission_id">
+        <phrase id="fldcaption" value="submission id" />
+      </field>
+      <field id="assignment_id">
+        <phrase id="fldcaption" value="assignment id" />
+      </field>
+      <field id="user_id">
+        <phrase id="fldcaption" value="user id" />
+      </field>
+      <field id="submission_path">
+        <phrase id="fldcaption" value="submission path" />
+      </field>
+      <field id="submitted_at">
+        <phrase id="fldcaption" value="submitted at" />
+      </field>
+      <field id="attempt_no">
+        <phrase id="fldcaption" value="attempt no" />
+      </field>
+      <field id="submission_status">
+        <phrase id="fldcaption" value="submission status" />
+        <phrase id="fldtagvalue1" value="submitted" />
+        <phrase id="fldtagcaption1" value="submitted" />
+        <phrase id="fldtagvalue2" value="late" />
+        <phrase id="fldtagcaption2" value="late" />
+        <phrase id="fldtagvalue3" value="resubmitted" />
+        <phrase id="fldtagcaption3" value="resubmitted" />
+      </field>
+      <field id="remarks">
+        <phrase id="fldcaption" value="remarks" />
+      </field>
+      <field id="checked_by">
+        <phrase id="fldcaption" value="checked by" />
+      </field>
+      <field id="marks_obtained">
+        <phrase id="fldcaption" value="marks obtained" />
+      </field>
+      <field id="checked_at">
+        <phrase id="fldcaption" value="checked at" />
+      </field>
+    </table>
+    <table id="systemsettings">
+      <phrase id="tblcaption" value="systemsettings" />
+      <field id="id">
+        <phrase id="fldcaption" value="id" />
+      </field>
+      <field id="setting_name">
+        <phrase id="fldcaption" value="setting name" />
+      </field>
+      <field id="setting_value">
+        <phrase id="fldcaption" value="setting value" />
+      </field>
+      <field id="description">
+        <phrase id="fldcaption" value="description" />
+      </field>
+      <field id="created_at">
+        <phrase id="fldcaption" value="created at" />
+      </field>
+      <field id="updated_at">
+        <phrase id="fldcaption" value="updated at" />
+      </field>
+    </table>
+    <table id="users">
+      <phrase id="tblcaption" value="users" />
+      <field id="userid">
+        <phrase id="fldcaption" value="userid" />
+      </field>
+      <field id="first_name">
+        <phrase id="fldcaption" value="first name" />
+      </field>
+      <field id="last_name">
+        <phrase id="fldcaption" value="last name" />
+      </field>
+      <field id="email">
+        <phrase id="fldcaption" value="email" />
+      </field>
+      <field id="password_hash">
+        <phrase id="fldcaption" value="password hash" />
+      </field>
+      <field id="role">
+        <phrase id="fldcaption" value="role" />
+        <phrase id="fldtagvalue1" value="admin" />
+        <phrase id="fldtagcaption1" value="admin" />
+        <phrase id="fldtagvalue2" value="teacher" />
+        <phrase id="fldtagcaption2" value="teacher" />
+        <phrase id="fldtagvalue3" value="student" />
+        <phrase id="fldtagcaption3" value="student" />
+      </field>
+      <field id="department_id">
+        <phrase id="fldcaption" value="department id" />
+      </field>
+      <field id="status">
+        <phrase id="fldcaption" value="status" />
+        <phrase id="fldtagvalue1" value="active" />
+        <phrase id="fldtagcaption1" value="active" />
+        <phrase id="fldtagvalue2" value="blocked" />
+        <phrase id="fldtagcaption2" value="blocked" />
+        <phrase id="fldtagvalue3" value="deleted" />
+        <phrase id="fldtagcaption3" value="deleted" />
+      </field>
+      <field id="phone">
+        <phrase id="fldcaption" value="phone" />
+      </field>
+      <field id="last_login_at">
+        <phrase id="fldcaption" value="last login at" />
+      </field>
+      <field id="created_at">
+        <phrase id="fldcaption" value="created at" />
+      </field>
+      <field id="updated_at">
+        <phrase id="fldcaption" value="updated at" />
+      </field>
+    </table>
+  </project>
+</ew-language>

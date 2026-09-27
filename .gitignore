@@ -1,0 +1,30 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies / generated files
+vendor/
+var/
+logs/
+
+# Local/debug/test files
+debug_*.php
+test_*.php
+simple_test.php
+check_db.php
+check_emails.php
+check_users.php
+health_check.php
+gen_hash.php
+hash.php
+update_passwords.php
+
+# Local database / potentially sensitive data
+lms_setup.sql
+sql/
+
+# Deployment/local files
+deploy.sh
+# JWT private/public keys
+config/jwt/*.pem

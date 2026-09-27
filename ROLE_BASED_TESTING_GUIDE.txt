@@ -1,0 +1,99 @@
+============================================================
+ROLE-BASED DASHBOARD TESTING GUIDE
+============================================================
+
+This if0_41817906_lms now supports role-based dashboards with a simulation mode for testing
+different user roles without needing a full authentication system.
+
+---[ HOW TO TEST DIFFERENT ROLES ]---
+
+1. Open index.php in your editor
+2. Find the "SIMULATION MODE" section (around line 11-18)
+3. Uncomment the role-simulation lines:
+
+   Uncomment this:
+   // $current_role = 'admin';     // Change to 'admin', 'faculty', or 'student' to test
+   // $_SESSION['user_id'] = 1;    // Simulated user ID
+   // $_SESSION['role'] = $current_role;
+
+   To this:
+   $current_role = 'admin';     // Change to 'admin', 'faculty', or 'student' to test
+   $_SESSION['user_id'] = 1;    // Simulated user ID
+   $_SESSION['role'] = $current_role;
+
+4. Change the role value to test:
+   - $current_role = 'admin'    (for Admin Dashboard)
+   - $current_role = 'faculty'  (for Faculty Dashboard)
+   - $current_role = 'student'  (for Student Dashboard)
+
+5. Visit http://sql205.infinityfree.com/ in your browser
+
+---[ DASHBOARD ROUTES ]---
+
+The system will automatically redirect based on the role:
+
+Admin Role:
+- Route: /index.php → /admin_dashboard.php
+- Dashboard: admin_dashboard.php (new)
+- Admin Panel: /admin/dashboard.php (existing)
+
+Faculty Role:
+- Route: /index.php → /faculty_dashboard.php
+- Dashboard: faculty_dashboard.php (new)
+- Faculty Panel: /faculty/dashboard.php (existing)
+
+Student Role:
+- Route: /index.php → /student_dashboard.php
+- Dashboard: student_dashboard.php (new)
+- Student Panel: /student/dashboard.php (existing)
+
+---[ FILE STRUCTURE ]---
+
+if0_41817906-level dashboards (NEW - Role entry points):
+✓ index.php (modified - routing logic)
+✓ admin_dashboard.php (new)
+✓ faculty_dashboard.php (new)
+✓ student_dashboard.php (new)
+
+Existing structure (PRESERVED - Specific role pages):
+✓ admin/dashboard.php
+✓ faculty/dashboard.php
+✓ student/dashboard.php
+✓ admin/users.php, courses.php, semesters.php, announcements.php
+✓ faculty/courses.php, assignments.php, materials.php, submissions.php
+✓ student/courses.php, assignments.php, materials.php, grades.php
+
+---[ REAL LOGIN SYSTEM ]---
+
+When simulation mode is OFF (commented out), the system will:
+1. Check for active login session
+2. If not logged in, redirect to login.php
+3. Once logged in, use the actual role from database
+4. Route accordingly based on real role
+
+---[ QUICK TEST CHECKLIST ]---
+
+□ Uncomment simulation mode in index.php
+□ Set $current_role = 'admin'
+□ Visit http://sql205.infinityfree.com/
+□ Verify Admin Dashboard appears
+□ Click "Manage Users", "Manage Courses" links
+□ Go back and change to $current_role = 'faculty'
+□ Verify Faculty Dashboard appears
+□ Test Faculty links (My Courses, Assignments, etc.)
+□ Change to $current_role = 'student'
+□ Verify Student Dashboard appears
+□ Test Student links (My Courses, Grades, etc.)
+□ Comment out simulation mode
+□ Verify login.php appears when visiting /
+
+---[ NOTES ]---
+
+- The $_SESSION['user_id'] = 1 in simulation mode uses a fake user ID
+- Database queries in dashboards may return empty results if user ID doesn't exist
+- This is normal for testing purposes
+- When real login is used, actual user data will be displayed
+- All existing functionality is preserved
+- New dashboards are added on top of existing structure
+
+============================================================

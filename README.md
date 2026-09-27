@@ -1,20 +1,20 @@
 # Learning Management System (if0_41817906_lms)
 
-A complete if0_41817906_lms built with plain PHP and MySQL, featuring role-based access control and modern UI.
+A complete lms built with plain PHP and MySQL, featuring role-based access control and modern UI.
 
 ## 🚀 Quick Start (Development)
 
-1. **Database Setup**: Import `if0_41817906_lms_setup.sql` into MySQL
+1. **Database Setup**: Import `database` into MySQL
 2. **Start XAMPP**: Apache + MySQL
-3. **Access**: `http://sql205.infinityfree.com/if0_41817906_lms`
+3. **Access**: `http://***********_lms`
 4. **Login**: Use test accounts below
 
 ## 📋 Test Accounts
 
 ```
-Admin:    admin@if0_41817906_lms.com    / password
-Faculty:  faculty@if0_41817906_lms.com  / password
-Student:  student@if0_41817906_lms.com / password
+Admin:    admin@lms.com    / password
+Faculty:  faculty@lms.com  / password
+Student:  student@lms.com / password
 ```
 
 ## 🏭 Production Deployment
@@ -28,10 +28,10 @@ Student:  student@if0_41817906_lms.com / password
 ### Step 1: Server Preparation
 
 ```bash
-# Clone or upload files to your web if0_41817906
+# Clone or upload files to your web 
 cd /var/www/html/
 git clone https://your-repo/if0_41817906_lms.git
-cd if0_41817906_lms
+cd lms
 
 # Run deployment script
 chmod +x deploy.sh
@@ -52,7 +52,7 @@ nano .env
 DB_HOST=your-db-host
 DB_USER=your-db-user
 DB_PASS=your-secure-password
-DB_NAME=if0_41817906_lms
+DB_NAME=lms
 
 # Application
 APP_ENV=production
@@ -69,7 +69,7 @@ SESSION_SAMESITE=Strict
 
 ```bash
 # Import database schema
-mysql -u your-user -p your-database < if0_41817906_lms_setup.sql
+mysql -u your-user -p your-database <lms_setup.sql
 ```
 
 ### Step 4: Web Server Configuration
@@ -78,9 +78,9 @@ mysql -u your-user -p your-database < if0_41817906_lms_setup.sql
 ```apache
 <VirtualHost *:80>
     ServerName yourdomain.com
-    Documentif0_41817906 /var/www/html/if0_41817906_lms
+    Document/var/www/html/_lms
 
-    <Directory /var/www/html/if0_41817906_lms>
+    <Directory /var/www/html/_lms>
         AllowOverride All
         Require all granted
     </Directory>
@@ -93,13 +93,13 @@ mysql -u your-user -p your-database < if0_41817906_lms_setup.sql
 
 <VirtualHost *:443>
     ServerName yourdomain.com
-    Documentif0_41817906 /var/www/html/if0_41817906_lms
+    Document /var/www/html/lms
 
     SSLEngine on
     SSLCertificateFile /path/to/cert.pem
     SSLCertificateKeyFile /path/to/private.key
 
-    <Directory /var/www/html/if0_41817906_lms>
+    <Directory /var/www/html/_lms>
         AllowOverride All
         Require all granted
     </Directory>
@@ -118,7 +118,7 @@ server {
     listen 443 ssl http2;
     server_name yourdomain.com;
 
-    if0_41817906 /var/www/html/if0_41817906_lms;
+    if0_41817906 /var/www/html/lms;
     index index.php;
 
     ssl_certificate /path/to/cert.pem;
@@ -150,7 +150,7 @@ server {
 
 ```bash
 # Set proper ownership
-chown -R www-data:www-data /var/www/html/if0_41817906_lms
+chown -R www-data:www-data /var/www/html/lms
 
 # Secure sensitive files
 chmod 600 .env
@@ -181,20 +181,6 @@ certbot --apache -d yourdomain.com
 5. **Test responsive design** on mobile devices
 
 ## 🔧 Configuration Options
-
-### Environment Variables
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `DB_HOST` | sql205.infinityfree.com | Database server |
-| `DB_USER` | if0_41817906 | Database username |
-| `DB_PASS` | (empty) | Database password |
-| `DB_NAME` | if0_41817906_lms | Database name |
-| `APP_ENV` | production | Environment mode |
-| `APP_DEBUG` | false | Debug mode |
-| `APP_URL` | sql205.infinityfree.com | Application URL |
-| `SESSION_LIFETIME` | 7200 | Session lifetime (seconds) |
-| `MAX_FILE_SIZE` | 52428800 | Max upload size (bytes) |
 
 ### File Permissions
 
@@ -250,26 +236,12 @@ See LICENSE.md for licensing information.
 ### Step 2: Configure Database Connection
 
 Edit `config/db.php`:
-```php
-define('DB_HOST', 'sql205.infinityfree.com');     // Your MySQL host
-define('DB_USER', 'if0_41817906');          // Your MySQL username
-define('DB_PASS', '');              // Your MySQL password
-define('DB_NAME', 'if0_41817906_lms');           // Database name
-```
 
 ### Step 3: Start XAMPP
 
 1. Open XAMPP Control Panel
 2. Start Apache and MySQL services
-3. Access if0_41817906_lms at: http://sql205.infinityfree.com/if0_41817906_lms
-
-## Test Credentials
-
-| Role    | Email              | Password |
-|---------|-------------------|----------|
-| Admin   | admin@if0_41817906_lms.com     | password |
-| Faculty | faculty@if0_41817906_lms.com   | password |
-| Student | student@if0_41817906_lms.com   | password |
+3. Access _lms at: http://********************_lms
 
 ## File Structure
 
@@ -375,7 +347,7 @@ All operations use PHP forms and redirects. No REST API endpoints.
 ### Database Connection Error
 - Check MySQL is running
 - Verify database credentials in `config/db.php`
-- Ensure `if0_41817906_lms` database is created
+- Ensure `lms` database is created
 
 ### Login Issues
 - Verify test user credentials
